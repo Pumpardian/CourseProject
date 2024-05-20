@@ -38,6 +38,8 @@ class COURSEWORK_API UFighterWidget : public UUserWidget
 	UPROPERTY(meta = (BindWidget))
 	UTextBlock* HealthText;
 	UPROPERTY(meta = (BindWidget))
+	UTextBlock* IntentionText;
+	UPROPERTY(meta = (BindWidget))
 	UHorizontalBox* BuffsBox;
 	UPROPERTY(meta = (BindWidget))
 	UButton* Button;
@@ -48,6 +50,10 @@ class COURSEWORK_API UFighterWidget : public UUserWidget
 	UWidgetAnimation* BlockAnimation;
 	UPROPERTY(Transient, meta = (BindWidgetAnim))
 	UWidgetAnimation* DamageReceiveAnimation;
+	UPROPERTY(Transient, meta = (BindWidgetAnim))
+	UWidgetAnimation* SelfTarget;
+	UPROPERTY(Transient, meta = (BindWidgetAnim))
+	UWidgetAnimation* AttackTarget;
 
 public:
 
@@ -60,9 +66,13 @@ public:
 	UFUNCTION()
 	void PlayDamageReceiveAnimation();
 	UFUNCTION()
+	void PlayAttackIndicator();
+	UFUNCTION()
+	void PlaySelfIndicator();
+	UFUNCTION()
 	void OnClicked();
 	UFUNCTION()
-	void SetIntention(UTexture2D* image = nullptr);
+	void SetIntention(UTexture2D* image = nullptr, int amount = 0);
 	UFUNCTION()
 	void SetFighter(UTexture2D* image);
 	UFUNCTION()

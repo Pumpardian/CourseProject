@@ -1,0 +1,297 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\CourseWork.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{3770975A-03A8-474B-9676-FF500D9D37C4}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\CourseWork.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\CourseWorkEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{A18AFEDE-49DD-4601-B01F-100A0D907BDE}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\CourseWork">
+      <UniqueIdentifier>{BB4AE82C-EE71-4C2A-B64C-63D883343F33}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\CourseWork\BattleMode.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\BattleMode.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\BattleWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\BattleWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\Buff.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\Buff.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\BuffStruct.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\BuffStruct.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\BuffWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\BuffWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\Card.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\Card.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\CardHandWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\CardHandWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\CardSelectionWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\CardSelectionWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\CardStruct.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\CardStruct.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\CardWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\CardWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\CharacterClass.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\CharacterClass.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\CharacterSelectionWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\CharacterSelectionWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\ChooseButton.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\ChooseButton.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\CourseWork\CourseWork.Build.cs">
+      <Filter>Source\CourseWork</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\CourseWork\CourseWork.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\CourseWork.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\CourseWorkGameModeBase.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\CourseWorkGameModeBase.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\Enemy.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\Enemy.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\EnemyAction.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\EnemyAction.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\EventAsset.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\EventAsset.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\EventOption.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\EventOption.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\EventWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\EventWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\FighterStruct.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\FighterStruct.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\FighterWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\FighterWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\FloorStruct.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\FloorStruct.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\GameManager.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\GameManager.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\GameOver.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\GameOver.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\GameplayMode.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\GameplayMode.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\LootWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\LootWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\MainMenuMode.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\MainMenuMode.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\MainMenuWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\MainMenuWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\MapStruct.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\MapStruct.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\MapWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\MapWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\NodeStruct.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\NodeStruct.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\NodeWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\NodeWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\PathStruct.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\PathStruct.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\PlayerStats.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\PlayerStats.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\PlayerStatsHUD.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\PlayerStatsHUD.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\PlayerStatsWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\PlayerStatsWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\Potion.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\Potion.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\PotionDropdownWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\PotionDropdownWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\PotionWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\PotionWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\Relic.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\Relic.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\RelicWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\RelicWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\RestWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\RestWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\CourseWork\ShopWidget.cpp">
+      <Filter>Source\CourseWork</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\CourseWork\ShopWidget.h">
+      <Filter>Source\CourseWork</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

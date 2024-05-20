@@ -1,0 +1,14 @@
+{
+	"Targets": [
+		{
+			"Name": "CourseWork",
+			"Path": "C:\\Users\\db200\\CourseWork\\Source\\CourseWork.Target.cs",
+			"Type": "Game"
+		},
+		{
+			"Name": "CourseWorkEditor",
+			"Path": "C:\\Users\\db200\\CourseWork\\Source\\CourseWorkEditor.Target.cs",
+			"Type": "Editor"
+		}
+	]
+}

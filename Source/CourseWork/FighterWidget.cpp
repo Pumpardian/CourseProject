@@ -44,18 +44,29 @@ void UFighterWidget::PlayDamageReceiveAnimation()
 	PlayAnimation(DamageReceiveAnimation);
 }
 
+void UFighterWidget::PlayAttackIndicator()
+{
+	PlayAnimation(AttackTarget);
+}
+
+void UFighterWidget::PlaySelfIndicator()
+{
+	PlayAnimation(SelfTarget);
+}
+
 void UFighterWidget::OnClicked()
 {
 	OnFighterClickedEvent.Broadcast(this);
 }
 
-void UFighterWidget::SetIntention(UTexture2D* image)
+void UFighterWidget::SetIntention(UTexture2D* image, int amount)
 {
 	if (image == nullptr)
 	{
 		IntentionImage->SetOpacity(0);
 	}
 	IntentionImage->SetBrushFromTexture(image);
+	IntentionText->SetText((amount ? FText::AsNumber(amount) : FText::FromString("")));
 }
 
 void UFighterWidget::AddBuffs(TArray<FBuffStruct> buffs)

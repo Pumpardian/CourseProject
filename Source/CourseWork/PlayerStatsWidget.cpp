@@ -39,7 +39,7 @@ void UPlayerStatsWidget::UpdateInfo()
 	for (auto& relic : manager->GetRelics())
 	{
 		URelicWidget* Relic = Cast<URelicWidget>(CreateWidget(GetWorld(), relicWidget));
-		Relic->SetUp(relic->relicIcon, relic->relicDescription);
+		Relic->SetUp(relic);
 		RelicsBox->AddChildToHorizontalBox(Relic);
 	}
 

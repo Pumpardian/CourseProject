@@ -14,12 +14,12 @@ void ABattleMode::BeginPlay()
 	controller->SetShowMouseCursor(true);
 	manager = Cast<UGameManager>(GetGameInstance());
 	battleWidget = Cast<UBattleWidget>(CreateWidget(GetWorld(), bwidget));
-	battleWidget->AddToViewport();
+	battleWidget->AddToViewport(0);
 	battleWidget->OnEndTurnClickedEvent.AddDynamic(this, &ABattleMode::HandleTurn);
 	manager->OnPotionUsedEvent.AddDynamic(this, &ABattleMode::PotionUse);
 
 	UUserWidget* hud = CreateWidget(GetWorld(), hudWidget);
-	hud->AddToViewport();
+	hud->AddToViewport(9);
 
 	TArray<UEnemy*> enemyPull;
 	switch (manager->GetGameState())
@@ -192,6 +192,24 @@ void ABattleMode::HandleTurn()
 
 void ABattleMode::SelectCard(UCardWidget* Card)
 {
+	for (auto& card : cardsInHand)
+	{
+		if (card.widget == Card)
+		{
+			switch (card.cardTargetType)
+			{
+			case ECardTargetType::Self:
+				playerFighter.widget->PlaySelfIndicator();
+				break;
+			default:
+				for (auto& fighter : enemyFighters)
+				{
+					fighter.widget->PlayAttackIndicator();
+				}
+				break;
+			}
+		}
+	}
 	selectedCard = Card;
 }
 
@@ -228,6 +246,7 @@ void ABattleMode::PlayCard(FCardStruct& card, FFighterStruct& fighter)
 
 	if (energy < cost)
 	{
+		battleWidget->PlayNotEnoughEnergy();
 		return;
 	}
 	if (card.cardType == ECardType::Curse || card.cardType == ECardType::Status)
@@ -354,11 +373,13 @@ void ABattleMode::DrawCard()
 	{
 		ShuffleDiscardToDraw();
 	}
-
-	cardsInHand.Add(drawPile.Pop());
-	UCardWidget* cardWidget = battleWidget->AddCardToHand(cardsInHand.Last());
-	cardWidget->OnCardClickedEvent.AddDynamic(this, &ABattleMode::SelectCard);
-	battleWidget->UpdateDrawNumber(drawPile.Num());
+	if (drawPile.Num())
+	{
+		cardsInHand.Add(drawPile.Pop());
+		UCardWidget* cardWidget = battleWidget->AddCardToHand(cardsInHand.Last());
+		cardWidget->OnCardClickedEvent.AddDynamic(this, &ABattleMode::SelectCard);
+		battleWidget->UpdateDrawNumber(drawPile.Num());
+	}
 }
 
 void ABattleMode::ShuffleDiscardToDraw()
@@ -422,19 +443,6 @@ void ABattleMode::ApplyBuff(FFighterStruct& fighter, FBuffStruct& buff)
 
 void ABattleMode::ApplyDamage(FFighterStruct attacker, FFighterStruct& defender, int amount, bool passive)
 {
-	if (amount < 0)
-	{
-		if (defender.isPlayer)
-		{
-			manager->HandleHealth(amount);
-		}
-		else
-		{
-			defender.currentHealth = FMath::Min(defender.maxHealth, defender.currentHealth + amount);
-			battleWidget->UpdateFighter(defender);
-		}
-		return;
-	}
 	int damage;
 	if (!passive)
 	{
@@ -479,9 +487,15 @@ void ABattleMode::ApplyDamage(FFighterStruct attacker, FFighterStruct& defender,
 				return;
 			}
 		}
-		defender.widget->PlayDamageReceiveAnimation();
+		if (defender.widget != nullptr)
+		{
+			defender.widget->PlayDamageReceiveAnimation();
+		}
 	}
-	battleWidget->UpdateFighter(defender);
+	if (defender.widget != nullptr)
+	{
+		battleWidget->UpdateFighter(defender);
+	}
 }
 
 void ABattleMode::ApplyBlock(FFighterStruct& fighter, int amount)
@@ -496,7 +510,7 @@ void ABattleMode::ReduceBuffs(FFighterStruct& fighter)
 	{
 		if (fighter.buffs[i].name == "Regeneration")
 		{
-			ApplyDamage(FFighterStruct(), fighter, -fighter.buffs[i].amount);
+			ApplyDamage(FFighterStruct(), fighter, -fighter.buffs[i].amount, true);
 		}
 		if (fighter.buffs[i].name == "Poison")
 		{
@@ -561,5 +575,5 @@ void ABattleMode::EndFight()
 	}
 
 	ULootWidget* widget = Cast<ULootWidget>(CreateWidget(GetWorld(), lootWidget));
-	widget->AddToViewport();
+	widget->AddToViewport(5);
 }

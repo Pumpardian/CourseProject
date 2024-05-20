@@ -230,6 +230,7 @@ void UGameManager::AddRelic(URelic* relic)
 		HandleMaxHealth(10);
 	}
 	relics.Add(relic);
+	OnPlayerStatChangeEvent.Broadcast();
 }
 
 bool UGameManager::HasRelic(FString name)

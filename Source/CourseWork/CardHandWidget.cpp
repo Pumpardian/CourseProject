@@ -27,7 +27,7 @@ void UCardHandWidget::RemoveCard(FCardStruct& card)
 
 void UCardHandWidget::SelectCard(UCardWidget* Card)
 {
-	//UpdateCardPositions();
+	Card->PlayClickAnimation();
 }
 
 void UCardHandWidget::UpdateCardPositions()

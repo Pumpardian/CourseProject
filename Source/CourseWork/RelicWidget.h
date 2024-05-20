@@ -5,6 +5,7 @@
 #include "RelicWidget.generated.h"
 
 class UImage;
+class URelic;
 
 UCLASS()
 class COURSEWORK_API URelicWidget : public UUserWidget
@@ -17,5 +18,5 @@ class COURSEWORK_API URelicWidget : public UUserWidget
 public:
 
 	UFUNCTION()
-	void SetUp(UTexture2D* icon, FString description);
+	void SetUp(URelic* relic);
 };

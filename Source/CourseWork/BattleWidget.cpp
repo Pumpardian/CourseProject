@@ -69,7 +69,7 @@ void UBattleWidget::UpdateFighter(FFighterStruct& fighter)
 	fighter.widget->SetBlock(fighter.currentBlock);
 	if (!fighter.isPlayer)
 	{
-		fighter.widget->SetIntention(fighter.intent->actionIcon);
+		fighter.widget->SetIntention(fighter.intent->actionIcon, fighter.intent->amount);
 	}
 	fighter.widget->AddBuffs(fighter.buffs);
 }
@@ -103,4 +103,9 @@ void UBattleWidget::UpdateDiscardNumber(int to)
 void UBattleWidget::UpdateExhaustNumber(int to)
 {
 	TextExhaust->SetText(FText::AsNumber(to));
+}
+
+void UBattleWidget::PlayNotEnoughEnergy()
+{
+	PlayAnimation(NotEnoughEnergy);
 }

@@ -7,6 +7,7 @@
 class UButton;
 class UTextBlock;
 class UImage;
+class UWidgetAnimation;
 
 UDELEGATE()
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnChooseButtonClicked, UChooseButton*, button);
@@ -24,6 +25,8 @@ class COURSEWORK_API UChooseButton : public UUserWidget
 	UTextBlock* Text;
 	UPROPERTY(meta = (BindWidget))
 	UImage* Image;
+	UPROPERTY(Transient, meta = (BindWidgetAnim))
+	UWidgetAnimation* FullSlots;
 
 	UFUNCTION()
 	void ButtonClicked();
@@ -34,5 +37,7 @@ public:
 	FOnChooseButtonClicked OnChooseButtonClickEvent;
 
 	UFUNCTION()
-	void SetUp(UTexture2D* icon, FString title);
+	void PlayFullSlots();
+	UFUNCTION()
+	void SetUp(UTexture2D* icon, FString title, FString description);
 };

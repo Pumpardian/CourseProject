@@ -13,7 +13,12 @@ void UChooseButton::ButtonClicked()
 	OnChooseButtonClickEvent.Broadcast(this);
 }
 
-void UChooseButton::SetUp(UTexture2D* icon, FString title)
+void UChooseButton::PlayFullSlots()
+{
+	PlayAnimation(FullSlots);
+}
+
+void UChooseButton::SetUp(UTexture2D* icon, FString title, FString description)
 {
 	if (icon == nullptr)
 	{
@@ -24,4 +29,5 @@ void UChooseButton::SetUp(UTexture2D* icon, FString title)
 		Image->SetBrushFromTexture(icon);
 	}
 	Text->SetText(FText::FromString(title));
+	Button->SetToolTipText(FText::FromString(description));
 }

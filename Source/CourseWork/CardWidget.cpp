@@ -14,6 +14,11 @@ void UCardWidget::Clicked()
 	OnCardClickedEvent.Broadcast(this);
 }
 
+void UCardWidget::PlayClickAnimation()
+{
+	PlayAnimation(Selected);
+}
+
 void UCardWidget::SetName(FString& name)
 {
 	CardNameText->SetText(FText::FromString(name));
@@ -93,7 +98,7 @@ void UCardWidget::SetupCard(FCardStruct& card)
 	case ECardType::Attack:
 		description += "Deal ";
 		description.AppendInt(effect);
-		description += (repeatCount ? "x" + repeatCount : "");
+		description += (repeatCount > 1 ? "x" + FString::FromInt(repeatCount) : "");
 		description += " damage";
 		description += (card.cardTargetType == ECardTargetType::AllEnemies ? " to all enemies" : "");
 		description += (card.cardTargetType == ECardTargetType::RandomEnemy ? " to random enemy(s)" : "");

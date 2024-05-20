@@ -13,6 +13,8 @@ class UHorizontalBox;
 class URelic;
 class UCardSelectionWidget;
 class UScaleBox;
+class UTextBlock;
+class UOverlay;
 
 UCLASS()
 class COURSEWORK_API UShopWidget : public UUserWidget
@@ -51,6 +53,22 @@ class COURSEWORK_API UShopWidget : public UUserWidget
 	UButton* Card2;
 	UPROPERTY(meta = (BindWidget))
 	UButton* Card3;
+	UPROPERTY(meta = (BindWidget))
+	UOverlay* Card1O;
+	UPROPERTY(meta = (BindWidget))
+	UOverlay* Card2O;
+	UPROPERTY(meta = (BindWidget))
+	UOverlay* Card3O;
+	UPROPERTY(meta = (BindWidget))
+	UTextBlock* Price1;
+	UPROPERTY(meta = (BindWidget))
+	UTextBlock* Price2;
+	UPROPERTY(meta = (BindWidget))
+	UTextBlock* Price3;
+	UPROPERTY(meta = (BindWidget))
+	UTextBlock* Price4;
+	UPROPERTY(meta = (BindWidget))
+	UTextBlock* Price5;
 	UPROPERTY(meta = (BindWidget))
 	UButton* CardRemove;
 	UPROPERTY(meta = (BindWidget))

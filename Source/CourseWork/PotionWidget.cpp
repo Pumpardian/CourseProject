@@ -22,6 +22,6 @@ void UPotionWidget::SetUp(UPotion* ref)
 {
 	Image->SetBrushFromTexture(ref->icon);
 	FString des = ref->name + "\n" + ref->description;
-	Image->SetToolTipText(FText::FromString(des));
+	Button->SetToolTipText(FText::FromString(des));
 	potion = ref;
 }

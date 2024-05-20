@@ -7,6 +7,8 @@
 #include "Relic.h"
 #include "CardSelectionWidget.h"
 #include "CardWidget.h"
+#include "Components/TextBlock.h"
+#include "Components/Overlay.h"
 
 void UShopWidget::NativeConstruct()
 {
@@ -55,8 +57,13 @@ void UShopWidget::GenerateContent()
 	relics.Add(relicsPull[noRepeat]);
 	for (int i = 0; i < 5; ++i)
 	{
-		cost.Add(seed.RandRange(-150, -25));
+		cost.Add(seed.RandRange(-150, -35));
 	}
+	Price1->SetText(FText::AsNumber(-cost[0]));
+	Price2->SetText(FText::AsNumber(-cost[1]));
+	Price3->SetText(FText::AsNumber(-cost[2]));
+	Price4->SetText(FText::AsNumber(-cost[3]));
+	Price5->SetText(FText::AsNumber(-cost[4]));
 
 	UCardWidget* Card1Widget = Cast<UCardWidget>(CreateWidget(GetWorld(), cardWidget));
 	cards[0].widget = Card1Widget;
@@ -67,9 +74,9 @@ void UShopWidget::GenerateContent()
 	UCardWidget* Card3Widget = Cast<UCardWidget>(CreateWidget(GetWorld(), cardWidget));
 	cards[2].widget = Card3Widget;
 	Card3Widget->SetupCard(cards[2]);
-	Card1->AddChild(Card1Widget);
-	Card2->AddChild(Card2Widget);
-	Card3->AddChild(Card3Widget);
+	Card1O->AddChildToOverlay(Card1Widget);
+	Card2O->AddChildToOverlay(Card2Widget);
+	Card3O->AddChildToOverlay(Card3Widget);
 	Relic1Image->SetBrushFromTexture(relics[0]->relicIcon);
 	Relic2Image->SetBrushFromTexture(relics[1]->relicIcon);
 }
@@ -173,7 +180,7 @@ void UShopWidget::Confirm()
 		}
 		break;
 	case 6:
-		if (manager->HandleGold(0, true))
+		if (manager->HandleGold(75, true))
 		{
 			cardSelection->SetVisibility(ESlateVisibility::Visible);
 		}

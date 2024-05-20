@@ -16,6 +16,7 @@ class UFighterWidget;
 class UCardWidget;
 class UOverlay;
 class UTextBlock;
+class UWidgetAnimation;
 
 UDELEGATE()
 DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnEndTurnClicked);
@@ -29,6 +30,9 @@ class COURSEWORK_API UBattleWidget : public UUserWidget
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<UFighterWidget> fighterWidget;
+
+	UPROPERTY(Transient, meta = (BindWidgetAnim))
+	UWidgetAnimation* NotEnoughEnergy;
 
 public:
 
@@ -54,6 +58,7 @@ public:
 	UTextBlock* TextDiscard;
 	UPROPERTY(meta = (BindWidget))
 	UTextBlock* TextExhaust;
+
 	UFUNCTION()
 	void OnEndTurnButtonClicked();
 
@@ -83,4 +88,7 @@ public:
 	void UpdateDiscardNumber(int to);
 	UFUNCTION()
 	void UpdateExhaustNumber(int to);
+
+	UFUNCTION()
+	void PlayNotEnoughEnergy();
 };

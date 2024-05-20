@@ -1,8 +1,10 @@
 #include "RelicWidget.h"
 #include "Components/Image.h"
+#include "Relic.h"
 
-void URelicWidget::SetUp(UTexture2D* icon, FString description)
+void URelicWidget::SetUp(URelic* relic)
 {
-	Image->SetBrushFromTexture(icon);
-	Image->SetToolTipText(FText::FromString(description));
+	Image->SetBrushFromTexture(relic->relicIcon);
+	FString des = relic->relicName + "\n" + relic->relicDescription;
+	Image->SetToolTipText(FText::FromString(des));
 }

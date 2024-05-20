@@ -14,6 +14,7 @@ class UCard;
 class UPotion;
 class UScaleBox;
 class URelic;
+class UWidgetAnimation;
 
 UCLASS()
 class COURSEWORK_API ULootWidget : public UUserWidget
@@ -43,6 +44,8 @@ class COURSEWORK_API ULootWidget : public UUserWidget
 	UVerticalBox* LootBox;
 	UPROPERTY(meta = (BindWidget))
 	UScaleBox* CardSelectionBox;
+	UPROPERTY(Transient, meta = (BindWidgetAnim))
+	UWidgetAnimation* FullSlots;
 
 	UPROPERTY()
 	TArray<UCard*> cardsLoot;

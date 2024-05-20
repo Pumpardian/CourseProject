@@ -28,16 +28,15 @@ void UEventWidget::NativeConstruct()
 		UChooseButton* optionButton = CreateButton();
 		if (event->options[i] == nullptr)
 		{
-			optionButton->SetUp(nullptr, "[Leave]");
+			optionButton->SetUp(nullptr, "[Leave]", "");
 			continue;
 		}
-		optionButton->SetUp(nullptr, event->options[i]->text);
 		FString tooltip = GenerateTooltip(i);
+		optionButton->SetUp(nullptr, event->options[i]->text, tooltip);
 		if (!manager->HandleGold(event->options[i]->goldChange, true))
 		{
 			optionButton->SetIsEnabled(false);
 		}
-		optionButton->SetToolTipText(FText::FromString(tooltip));
 	}
 }
 

@@ -8,6 +8,7 @@
 class UImage;
 class UTextBlock;
 class UButton;
+class UWidgetAnimation;
 
 UDELEGATE()
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnCardClicked, UCardWidget*, CardClicked);
@@ -31,6 +32,8 @@ class COURSEWORK_API UCardWidget : public UUserWidget
 	UImage* CardImage;
 	UPROPERTY(meta = (BindWidget))
 	UButton* Button;
+	UPROPERTY(Transient, meta = (BindWidgetAnim))
+	UWidgetAnimation* Selected;
 	
 public:
 
@@ -39,6 +42,8 @@ public:
 
 	UFUNCTION()
 	void Clicked();
+	UFUNCTION()
+	void PlayClickAnimation();
 
 	UFUNCTION()
 	void SetName(FString& name);

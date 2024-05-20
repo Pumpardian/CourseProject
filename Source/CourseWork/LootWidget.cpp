@@ -44,12 +44,12 @@ void ULootWidget::GenerateBattleLoot(bool elite)
 	FString goldText;
 	goldText.AppendInt(goldLoot);
 	goldText += " Gold";
-	goldLootButton->SetUp(goldImage, goldText);
+	goldLootButton->SetUp(goldImage, goldText, "Game Currency");
 
 	float cardRarity = seed.GetFraction();
 	TArray<UCard*> cards;
 	TArray<UCard*> source;
-	//ECardRarity rarity;
+	ECardRarity rarity;
 	if (manager->GetCharacter() == ECharacterClass::ComputerScienceChad)
 	{
 		source = obtainableCSCCards;
@@ -59,7 +59,7 @@ void ULootWidget::GenerateBattleLoot(bool elite)
 		source = obtainableGSRLCards;
 	}
 
-	/*if (cardRarity < 0.17)
+	if (cardRarity < 0.17)
 	{
 		rarity = ECardRarity::Rare;
 	}
@@ -70,21 +70,21 @@ void ULootWidget::GenerateBattleLoot(bool elite)
 	else
 	{
 		rarity = ECardRarity::Common;
-	}*/
+	}
 
-	for (int i = 0; i < 3;)
+	for (int i = 0; i < 2;)
 	{
 		UCard* card = source[seed.RandRange(0, source.Num() - 1)];
-		/*if (card->cardRarity != rarity)
+		if (card->cardRarity != rarity)
 		{
 			continue;
-		}*/
+		}
 		cards.Add(card);
 		++i;
 	}
 
 	cardLootButton = CreateButton();
-	cardLootButton->SetUp(goldImage, "Choose Card");
+	cardLootButton->SetUp(nullptr, "Choose Card", "You have a choice from 3 cards");
 	cardSelection = Cast<UCardSelectionWidget>(CreateWidget(GetWorld(), cardSelectionWidget));
 	cardSelection->SetCustomCards(cards);
 	cardSelection->OnCardSelectConfirmClickedEvent.AddDynamic(this, &ULootWidget::AddLootCard);
@@ -99,7 +99,7 @@ void ULootWidget::GenerateBattleLoot(bool elite)
 		}
 		potionLootButtons.Add(CreateButton());
 		potionsLoot.Add(obtainablePotions[seed.RandRange(0, obtainablePotions.Num() - 1)]);
-		potionLootButtons.Last()->SetUp(potionsLoot.Last()->icon, potionsLoot.Last()->name);
+		potionLootButtons.Last()->SetUp(potionsLoot.Last()->icon, potionsLoot.Last()->name, potionsLoot.Last()->name);
 	}
 
 	if (seed.GetFraction() < 0.15)
@@ -109,7 +109,7 @@ void ULootWidget::GenerateBattleLoot(bool elite)
 		{
 			relicLoot = obtainableRelics[seed.RandRange(0, obtainableRelics.Num() - 1)];
 		} while (manager->HasRelic(relicLoot->relicName));
-		relicLootButton->SetUp(relicLoot->relicIcon, relicLoot->relicName);
+		relicLootButton->SetUp(relicLoot->relicIcon, relicLoot->relicName, relicLoot->relicDescription);
 	}
 }
 
@@ -123,7 +123,7 @@ void ULootWidget::GenerateTreasureLoot()
 		FString goldText;
 		goldText.AppendInt(goldLoot);
 		goldText += " Gold";
-		goldLootButton->SetUp(goldImage, goldText);
+		goldLootButton->SetUp(goldImage, goldText, "Game Currency");
 	}
 	else
 	{
@@ -132,12 +132,13 @@ void ULootWidget::GenerateTreasureLoot()
 		{
 			relicLoot = obtainableRelics[seed.RandRange(0, obtainableRelics.Num() - 1)];
 		} while (manager->HasRelic(relicLoot->relicName));
-		relicLootButton->SetUp(relicLoot->relicIcon, relicLoot->relicName);
+		relicLootButton->SetUp(relicLoot->relicIcon, relicLoot->relicName, relicLoot->relicDescription);
 	}
 }
 
 void ULootWidget::AddLootCard(FCardStruct& card)
 {
+	card.widget = nullptr;
 	manager->AddCard(card);
 	cardLootButton->RemoveFromParent();
 }
@@ -165,6 +166,11 @@ void ULootWidget::CollectLoot(UChooseButton* lootButton)
 			if (manager->AddPotion(potionsLoot[i]))
 			{
 				lootButton->RemoveFromParent();
+			}
+			else
+			{
+				lootButton->PlayFullSlots();
+				PlayAnimation(FullSlots);
 			}
 		}
 	}
