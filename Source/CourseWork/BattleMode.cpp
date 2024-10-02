@@ -152,7 +152,10 @@ void ABattleMode::HandleTurn()
 		{
 			enemy.currentBlock = 0;
 			ReduceBuffs(enemy);
-			battleWidget->UpdateFighter(enemy);
+			if (enemyFighters.Num())
+			{
+				battleWidget->UpdateFighter(enemy);
+			}
 		}
 
 		for (auto& enemy : enemyFighters)
@@ -179,7 +182,8 @@ void ABattleMode::HandleTurn()
 			battleWidget->UpdateFighter(playerFighter);
 		}
 
-		UseEnergy(-manager->GetMaxEnergy());
+		energy = manager->GetMaxEnergy();
+		battleWidget->UpdateEnergyNumber(energy);
 
 		for (int i = 0; i < drawAmount; ++i)
 		{

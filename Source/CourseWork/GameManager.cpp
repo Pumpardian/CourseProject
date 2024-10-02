@@ -306,7 +306,7 @@ void UGameManager::GenerateActNodes(TArray<FFloorStruct>& act)
 		int pathTo = currentNode;
 		for (int j = 0; j < 8;)
 		{
-			pathTo = seed.RandRange((pathTo > 0 ? pathTo - 1 : 0), (pathTo < 8 ? pathTo + 1 : 8));
+			pathTo = seed.RandRange((pathTo > 0 ? pathTo - 1 : 0), (pathTo < 6 ? pathTo + 1 : 6));
 			if (act[j].paths.Contains(FPathStruct(pathTo, currentNode)))
 			{
 				continue;

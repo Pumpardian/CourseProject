@@ -43,7 +43,10 @@ void AGameplayMode::BeginPlay()
 	}
 	widget->AddToViewport();
 
-	UUserWidget* hud = CreateWidget(GetWorld(), hudWidget);
-	hud->AddToViewport();
+	if (manager->GetGameState() != EGameState::Over)
+	{
+		UUserWidget* hud = CreateWidget(GetWorld(), hudWidget);
+		hud->AddToViewport();
+	}
 	controller->SetShowMouseCursor(true);
 }
